@@ -1,6 +1,6 @@
 # ELF_Analyzer 🔍 (VulnLens)
 
-> A lightweight, dependency-minimal ELF analysis and ROP gadget extraction tool built for CTF binary exploitation and security research.
+A lightweight, dependency-minimal ELF analysis and ROP gadget extraction tool built for CTF binary exploitation and security research.
 
 ---
 
