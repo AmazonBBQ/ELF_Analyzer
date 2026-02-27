@@ -4,7 +4,7 @@ A lightweight, dependency-minimal ELF analysis and ROP gadget extraction tool bu
 
 ---
 
-## 🌟 Features
+## Features
 
 - **Security Mitigations Check (Checksec):** Detects PIE, NX, Stack Canary, and RelRO.
 - **Strict-Aligned ROP Gadget Extraction:** Uses a backward byte-stepping algorithm to extract *reliable* gadgets.
@@ -12,19 +12,19 @@ A lightweight, dependency-minimal ELF analysis and ROP gadget extraction tool bu
 
 ---
 
-## 🤔 Why write another Gadget Finder?
+## Why write another Gadget Finder?
 
 There are many great tools like `ROPgadget` and `Ropper`. This project exists as a deep-dive into the Capstone Engine API and the structural complexity of **x86/x64 variable-length instruction decoding**.
 
 A common pitfall in naive gadget finders is slicing a fixed number of bytes backward from a `ret` instruction. On x86/x64, this often lands the disassembler in the middle of a multi-byte instruction, causing **instruction misalignment** and producing garbage (fake) instructions.
 
-### ✅ The Solution: strict alignment verification
+### The Solution: strict alignment verification
 
 VulnLens steps backward byte-by-byte from the `ret` opcode (`0xC3`), disassembles candidate slices, and **only accepts** a gadget when the decoded instruction stream length matches the slice length exactly. This guarantees correct alignment.
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 Requirements:
 
@@ -48,7 +48,7 @@ pip install pwntools capstone
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ```text
 usage: elf_analyzer.py [-h] [-b BYTES] [-i INSN] [--no-gadget] binary
@@ -66,7 +66,7 @@ options:
 
 ---
 
-## 🎯 Example Workflow
+## Example Workflow
 
 ### 1) Basic scanning
 
@@ -104,7 +104,7 @@ Use the results as a quick recon radar:
 
 ---
 
-## 📌 Notes
+## Notes
 
 - Gadget quality depends on correct decode boundaries. The alignment validation step is the core of this tool’s reliability.
 - If you want to extend it, good next steps are:
