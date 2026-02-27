@@ -20,7 +20,7 @@ A common pitfall in naive gadget finders is slicing a fixed number of bytes back
 
 ### The Solution: strict alignment verification
 
-VulnLens steps backward byte-by-byte from the `ret` opcode (`0xC3`), disassembles candidate slices, and **only accepts** a gadget when the decoded instruction stream length matches the slice length exactly. This guarantees correct alignment.
+This script steps backward byte-by-byte from the `ret` opcode (`0xC3`), disassembles candidate slices, and **only accepts** a gadget when the decoded instruction stream length matches the slice length exactly. This guarantees correct alignment.
 
 ---
 
@@ -30,21 +30,6 @@ Requirements:
 
 - Python 3.8+ (recommended)
 - `pwntools`, `capstone`
-
-```bash
-git clone https://github.com/yourusername/VulnLens.git
-cd VulnLens
-pip install pwntools capstone
-```
-
-> Tip: If you use a virtual environment:
->
-> ```bash
-> python3 -m venv .venv
-> source .venv/bin/activate
-> pip install -U pip
-> pip install pwntools capstone
-> ```
 
 ---
 
